@@ -1,4 +1,5 @@
 import ProductCard from '@/components/product/productCard';
+import ProductsFilterBar from '@/components/product/productsFilterBar';
 import { getAllProducts, getCategories, getProductsByCategory, applyQuery } from '@/lib/fakestore'
 
 export default async function ProductsPage({
@@ -23,7 +24,7 @@ export default async function ProductsPage({
 
   return (
     <section>
-     {/*  <ProductsFilterBar categories={categories} /> */}
+      <ProductsFilterBar categories={categories} />
       {products.length === 0 ? (
         <div className="text-slate-500">No products found.</div>
       ) : (

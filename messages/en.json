@@ -2,5 +2,22 @@
   "app": { "title": "E-Commerce" },
   "nav": { "home": "Home", "products": "Products", "cart": "Cart" },
   "cta": { "explore": "Explore" },
-  "lang": { "tr": "Turkish", "en": "English" }
+  "products": {
+    "title": "Products",
+    "filters": {
+      "category": "Category",
+      "all": "All",
+      "sortBy": "Sort by",
+      "none": "None",
+      "priceAsc": "Price ↑",
+      "priceDesc": "Price ↓",
+      "titleAsc": "Title A→Z",
+      "titleDesc": "Title Z→A",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "search": "Search",
+      "searchPh": "Title or description",
+      "clear": "Clear"
+    }
+  }
 }

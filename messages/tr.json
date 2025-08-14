@@ -2,5 +2,22 @@
   "app": { "title": "E-Ticaret" },
   "nav": { "home": "Ana Sayfa", "products": "Ürünler", "cart": "Sepet" },
   "cta": { "explore": "Keşfet" },
-  "lang": { "tr": "Türkçe", "en": "İngilizce" }
+  "products": {
+    "title": "Ürünler",
+    "filters": {
+      "category": "Kategori",
+      "all": "Tümü",
+      "sortBy": "Sırala",
+      "none": "Yok",
+      "priceAsc": "Fiyat ↑",
+      "priceDesc": "Fiyat ↓",
+      "titleAsc": "İsim A→Z",
+      "titleDesc": "İsim Z→A",
+      "minPrice": "Min Fiyat",
+      "maxPrice": "Max Fiyat",
+      "search": "Ara",
+      "searchPh": "Ürün veya açıklama",
+      "clear": "Temizle"
+    }
+  }
 }
