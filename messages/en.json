@@ -1,0 +1,6 @@
+{
+  "app": { "title": "E-Commerce" },
+  "nav": { "home": "Home", "products": "Products", "cart": "Cart" },
+  "cta": { "explore": "Explore" },
+  "lang": { "tr": "Turkish", "en": "English" }
+}
