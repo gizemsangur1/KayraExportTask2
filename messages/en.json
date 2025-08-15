@@ -4,6 +4,7 @@
   "cta": { "explore": "Explore" },
   "products": {
     "title": "Products",
+    "addToCart": "Add To Cart",
     "filters": {
       "category": "Category",
       "all": "All",

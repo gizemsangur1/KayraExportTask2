@@ -4,6 +4,7 @@
   "cta": { "explore": "Keşfet" },
   "products": {
     "title": "Ürünler",
+    "addToCart": "Sepete Ekle",
     "filters": {
       "category": "Kategori",
       "all": "Tümü",

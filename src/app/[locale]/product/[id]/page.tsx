@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getProduct } from '@/lib/fakestore'
+import AddToCart from '@/components/AddToCart'
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const product = await getProduct(params.id)
@@ -28,7 +29,7 @@ export default async function ProductDetail({
         <p className="leading-relaxed">{p.description}</p>
 
         <div className="mt-6 flex gap-3">
-          <button className="rounded-md bg-black px-4 py-2 text-white">Add to cart</button>
+          <AddToCart product={p}/>
           <Link href={`/${locale}/products`} className="rounded-md border px-4 py-2">Back to products</Link>
         </div>
       </div>
