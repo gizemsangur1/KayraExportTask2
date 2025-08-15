@@ -19,5 +19,11 @@
       "searchPh": "Ürün veya açıklama",
       "clear": "Temizle"
     }
+  },
+  "home": {
+    "heading": "Ana Sayfa",
+    "featured": "Öne Çıkan Ürünler",
+    "viewAll": "Tümünü Gör",
+    "empty": "Şu anda öne çıkan ürün bulunmuyor."
   }
 }

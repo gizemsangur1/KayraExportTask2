@@ -19,5 +19,11 @@
       "searchPh": "Title or description",
       "clear": "Clear"
     }
+  },
+  "home": {
+    "heading": "Home",
+    "featured": "Featured Products",
+    "viewAll": "View All",
+    "empty": "No featured products at the moment."
   }
 }
