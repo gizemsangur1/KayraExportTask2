@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Frontend (Next.js App Router, i18n, RTK, Tailwind)
 
-## Getting Started
+A modern, multilingual, performance-oriented storefront built with Next.js (App Router), next-intl for i18n, Redux Toolkit for cart state, Tailwind CSS for styling, and ISR (Incremental Static Regeneration) for fast loads and SEO.
 
-First, run the development server:
+## Features
 
-```bash
+1. Multilingual (TR/EN) with next-intl and JSON message catalogs
+
+2. SEO-ready product pages via dynamic generateMetadata
+
+3. Performance
+
+4. ISR caching with revalidate
+
+5. Optimized images via next/image (lazy by default)
+
+6. Client components memoization where it matters
+
+7. Cart with Redux Toolkit
+
+8. Quantity aggregation for duplicate items
+
+9. localStorage persistence across reloads
+
+10. Toast notifications for add/remove/clear (react-toastify)
+
+11. Products & Filters
+
+	Category, search, min/max price, and sort (price-asc|price-desc|title-asc|title-desc)
+
+12. Modern UI
+
+	Unified, understated color palette (neutral grays with subtle accents)
+
+13. Responsive cards, filter bar, and cart layout
+
+## Tech Stack
+
+Next.js 15 (App Router)
+
+next-intl
+
+Redux Toolkit + react-redux
+
+Tailwind CSS + PostCSS
+
+react-toastify
+
+Fake Store API (demo data)
+
+🚀 Getting Started
+
+Node.js >= 18.18 (recommended 20+)
+
+# Install
+npm install
+
+# Dev
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build & start
+npm run build
+npm start
+
+Next.js images (required)
+
+Allow external product images:
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'fakestoreapi.com', pathname: '/img/**' }
+    ]
+  }
+}
+module.exports = nextConfig
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure (high level)
+```
+src/
+  app/
+    [locale]/
+      page.tsx            
+      products/page.tsx   
+      product/[id]/page.tsx 
+      layout.tsx           
+  components/
+    Header.tsx, Footer.tsx
+    product/
+      ProductCard.tsx
+      ProductsFilterBar.tsx
+  store/
+    cartSlice.ts 
+    store.ts, hooks.ts
+  i18n/
+    locales.ts
+  messages/
+    en.json, tr.json
+  lib/
+    fakestore.ts  
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Internationalization (next-intl)
 
-## Learn More
+Provide translations in src/messages/en.json and src/messages/tr.json.
 
-To learn more about Next.js, take a look at the following resources:
+Wrap locale layouts with NextIntlClientProvider.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use getTranslations() (server) or useTranslations() (client).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Namespace usage:
 
-## Deploy on Vercel
+Root: t('cart.clear')
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+With namespace: const t = useTranslations('cart'); t('clear')
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Performance & SEO
+![Lighthouse Scores](public/image.png)
+
+
+### ISR (Incremental Static Regeneration)
+Product detail pages fetch with revalidate to cache and refresh in the background.
+
+### Dynamic metadata
+generateMetadata builds per-product title and description.
+
+### Client re-render reduction
+Memoize components that receive stable props and wrap frequent handlers with useCallback when necessary.
+
+## Cart Behavior
+
+Add/merge: adding the same product increases its quantity
+
+Persist: cart stored in localStorage (survives reloads)
+
+Toasts: feedback via react-toastify
+
+## Design Notes
+
+Neutral base
+
+Accents used sparingly (e.g., subtle amber/rose badges for emphasis)
+
+Consistent button shapes, spacing, hover/focus states
+
+Responsive card grid and filter bar
+
+## Scripts
+```
+npm run dev      # development
+
+npm run build    # production build
+
+npm start        # start production server
+
+npm run lint     # lint
+```
