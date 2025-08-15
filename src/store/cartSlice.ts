@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 export interface CartItem {
   id: number
@@ -26,10 +27,13 @@ const cartSlice = createSlice({
         existingItem.quantity += action.payload.quantity
       } else {
         state.items.push({ ...action.payload, quantity: action.payload.quantity || 1 })
+        toast.success(`${action.payload.title} added to cart`)
       }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
+      const removedItem = state.items.find(item => item.id === action.payload)
       state.items = state.items.filter(item => item.id !== action.payload)
+      if (removedItem) toast.error(`${removedItem.title} removed from cart`)
     },
     increaseQuantity: (state, action: PayloadAction<number>) => {
       const item = state.items.find(item => item.id === action.payload)

@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { LOCALES } from '@/i18n/locales';
 import ReduxProvider from '@/store/provider';
+import { ToastContainer } from 'react-toastify';
  
 export default async function LocaleLayout({
   children, params
@@ -22,6 +23,7 @@ export default async function LocaleLayout({
             <Header />
             <main className="py-8">{children}</main>
             <Footer />
+            <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
           </div>
         </NextIntlClientProvider>
          </ReduxProvider>
