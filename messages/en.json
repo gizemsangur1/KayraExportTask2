@@ -26,5 +26,12 @@
     "featured": "Featured Products",
     "viewAll": "View All",
     "empty": "No featured products at the moment."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "remove": "Remove",
+    "total": "Total",
+    "clear": "Clear Cart"
   }
 }

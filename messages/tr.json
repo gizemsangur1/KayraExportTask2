@@ -26,5 +26,12 @@
     "featured": "Öne Çıkan Ürünler",
     "viewAll": "Tümünü Gör",
     "empty": "Şu anda öne çıkan ürün bulunmuyor."
+  },
+  "cart": {
+    "title": "Sepetiniz",
+    "empty": "Sepetiniz boş.",
+    "remove": "Kaldır",
+    "total": "Toplam",
+    "clear": "Sepeti Temizle"
   }
 }
