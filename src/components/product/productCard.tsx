@@ -12,7 +12,7 @@ export default function ProductCard({ product, locale }: { product: Product; loc
   const t = useTranslations('products')
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault() 
+    e.preventDefault()
     dispatch(addToCart({
       id: product.id,
       title: product.title,
@@ -23,13 +23,30 @@ export default function ProductCard({ product, locale }: { product: Product; loc
   }
 
   return (
-    <Link href={`/${locale}/product/${product.id}`} className="group rounded-lg border p-4 hover:shadow block">
-      <div className="aspect-square relative mb-3">
-        <Image src={product.image} alt={product.title} fill sizes="(min-width: 768px) 25vw, 50vw" className="object-contain" />
+    <Link
+      href={`/${locale}/product/${product.id}`}
+      className="group block rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+    >
+      <div className="relative mb-3 aspect-square overflow-hidden rounded-lg bg-slate-50">
+        <Image
+          src={product.image}
+          alt={product.title}
+          fill
+          sizes="(min-width: 768px) 25vw, 50vw"
+          className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
-      <div className="line-clamp-2 text-sm">{product.title}</div>
-      <div className="mt-1 font-semibold">${product.price.toFixed(2)}</div>
-      <AddToCart product={product} />
+      <h3 className="line-clamp-2 min-h-[40px] text-sm font-medium text-slate-800 group-hover:text-slate-900">
+        {product.title}
+      </h3>
+
+      <div className="mt-2 text-lg font-semibold text-slate-900">
+        ${product.price.toFixed(2)}
+      </div>
+
+      <div className="mt-3">
+        <AddToCart product={product} />
+      </div>
     </Link>
   )
 }

@@ -17,19 +17,40 @@ export default function Header() {
   )
 
   return (
-    <header className="flex items-center justify-between py-6">
-      <Link href={prefix} className="text-xl font-bold">Store</Link>
+    <header className="flex items-center justify-between py-4 border-b border-slate-200 bg-slate-50 px-4 md:px-0">
+      <Link
+        href={prefix}
+        className="text-2xl font-bold text-slate-800 tracking-tight hover:text-slate-600 transition-colors"
+      >
+        Gizem Şangür
+      </Link>
+
       <nav className="flex items-center gap-6">
-        <Link href={prefix} className={on(prefix) ? 'font-semibold' : ''}>
+        <Link
+          href={prefix}
+          className={`hover:text-slate-800 transition-colors ${
+            on(prefix) ? 'font-semibold text-slate-900' : 'text-slate-600'
+          }`}
+        >
           {t('nav.home')}
         </Link>
-        <Link href={`${prefix}/products`} className={on(`${prefix}/products`) ? 'font-semibold' : ''}>
+        <Link
+          href={`${prefix}/products`}
+          className={`hover:text-slate-800 transition-colors ${
+            on(`${prefix}/products`) ? 'font-semibold text-slate-900' : 'text-slate-600'
+          }`}
+        >
           {t('nav.products')}
         </Link>
-        <Link href={`${prefix}/cart`} className={on(`${prefix}/cart`) ? 'font-semibold' : ''}>
+        <Link
+          href={`${prefix}/cart`}
+          className={`relative hover:text-slate-800 transition-colors ${
+            on(`${prefix}/cart`) ? 'font-semibold text-slate-900' : 'text-slate-600'
+          }`}
+        >
           {t('nav.cart')}
           {cartItemsCount > 0 && (
-            <span className="ml-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full">
+            <span className="absolute -top-2 -right-3 bg-rose-500 text-white text-xs font-medium px-2 py-0.5 rounded-full shadow-sm">
               {cartItemsCount}
             </span>
           )}

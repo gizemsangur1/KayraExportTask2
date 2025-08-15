@@ -23,7 +23,7 @@ export default function AddToCart({ product }: { product: Product }) {
   return (
     <button
       onClick={handleAddToCart}
-      className="mt-2 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+      className="mt-2 w-full bg-slate-700 text-white py-2 rounded-2xl hover:bg-slate-800 transition-colors"
     >
       {t('addToCart')}
     </button>
