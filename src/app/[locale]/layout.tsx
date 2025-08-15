@@ -6,12 +6,19 @@ import Footer from '@/components/Footer';
 import ReduxProvider from '@/store/provider';
 import { ToastContainer } from 'react-toastify';
 
+type Locale = typeof LOCALES[number];
+
 export default async function LocaleLayout({
   children,
   params
-}: { children: React.ReactNode; params: { locale: string } }) {
-  const locale = params.locale;
-  if (!LOCALES.includes(locale as any)) notFound();
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!LOCALES.includes(locale as Locale)) notFound();
+
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (

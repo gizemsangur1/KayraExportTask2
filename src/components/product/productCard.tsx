@@ -2,26 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Product } from '@/lib/fakestore'
-import { useAppDispatch } from '@/store/hooks'
-import { addToCart } from '@/store/cartSlice'
-import { useTranslations } from 'next-intl'
 import AddToCart from '../AddToCart'
 
 export default function ProductCard({ product, locale }: { product: Product; locale: string }) {
-  const dispatch = useAppDispatch()
-  const t = useTranslations('products')
-
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault()
-    dispatch(addToCart({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      image: product.image,
-      quantity: 1
-    }))
-  }
-
   return (
     <Link
       href={`/${locale}/product/${product.id}`}

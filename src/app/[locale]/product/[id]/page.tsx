@@ -3,8 +3,13 @@ import Link from 'next/link'
 import { getProduct } from '@/lib/fakestore'
 import AddToCart from '@/components/AddToCart'
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const product = await getProduct(params.id)
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  const product = await getProduct(id)
   return {
     title: `${product.title} | Store`,
     description: product.description.slice(0, 150)
@@ -13,16 +18,18 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
 export default async function ProductDetail({
   params
-}: { params: { locale: string; id: string } }) {
-  const { locale, id } = params
+}: {
+  params: Promise<{ locale: string; id: string }>
+}) {
+  const { locale, id } = await params
   const p = await getProduct(id)
 
-   const res = await fetch(`https://fakestoreapi.com/products/${params.id}`, {
-    next: { revalidate: 60 } 
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
+    next: { revalidate: 60 }
   })
 
   const product = await res.json()
-  
+
   return (
     <article className="mx-auto grid max-w-6xl gap-10 rounded-xl bg-white p-6 shadow-md md:grid-cols-2 md:p-10">
       <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-50">
