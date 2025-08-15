@@ -1,15 +1,13 @@
-import type {Metadata} from 'next'
-import './globals.css'
+import ReduxProvider from '@/store/provider'
 
-export const metadata: Metadata = {
-  title: 'E-Ticaret',
-  description: 'Çok dilli, SEO odaklı e-ticaret frontend'
-}
-
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
+      </body>
     </html>
   )
 }
