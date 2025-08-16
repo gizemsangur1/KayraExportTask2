@@ -2,6 +2,8 @@
 
 A modern, multilingual, performance-oriented storefront built with Next.js (App Router), next-intl for i18n, Redux Toolkit for cart state, Tailwind CSS for styling, and ISR (Incremental Static Regeneration) for fast loads and SEO.
 
+[Live Preview](https://kayra-export-task2.vercel.app/tr)
+
 ## Features
 
 1. Multilingual (TR/EN) with next-intl and JSON message catalogs
@@ -48,7 +50,7 @@ react-toastify
 
 Fake Store API (demo data)
 
-🚀 Getting Started
+## Getting Started
 
 Node.js >= 18.18 (recommended 20+)
 
